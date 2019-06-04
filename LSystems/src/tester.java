@@ -1,5 +1,7 @@
 import galapagos.Turtle;
 
+import java.util.List;
+
 public class tester {
     public static void main(String[] args){
         KochCurve curva = new KochCurve();
@@ -14,10 +16,13 @@ public class tester {
         compiler.addRule('+',new Turn(60));
         compiler.addRule('-',new Turn(-60));
 
+
         System.out.println(compiler.rulesList);
         System.out.println(compiler.letterList);
         System.out.println(compiler.compile(word1));
         System.out.println(word1);
+
+
     }
 }
 

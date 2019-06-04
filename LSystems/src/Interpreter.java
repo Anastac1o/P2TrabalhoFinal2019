@@ -6,6 +6,4 @@ public interface Interpreter {
     void runTurn(Turn statement);
     void runPenUp(PenUp statement);
     void runPenDown(PenDown statement);
-    void runLeap(Leap statement);
-    void runSave(Save statement);
 }
