@@ -11,7 +11,8 @@ public class Compiler {
 
     protected TurtleStatement compile(Character c) {
         if(letterList.contains(c)){
-            return rulesList.elementAt(rulesList.indexOf(c)+1);
+            int index = letterList.indexOf(c);
+            return rulesList.elementAt(index);
         }
         return null;
     }

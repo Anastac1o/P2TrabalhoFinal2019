@@ -13,8 +13,11 @@ public class tester {
         compiler.addRule('F',new Forward(10));
         compiler.addRule('+',new Turn(60));
         compiler.addRule('-',new Turn(-60));
-        compiler.compile(word1);
+
+        System.out.println(compiler.rulesList);
+        System.out.println(compiler.letterList);
         System.out.println(compiler.compile(word1));
+        System.out.println(word1);
     }
 }
 
