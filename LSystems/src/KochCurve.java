@@ -16,7 +16,6 @@ public class KochCurve implements LSystem {
 
 
     public String iter(int n) {
-        int count = 0;
         String word = startWord;
         for(int i = 0; i<n; i++){
             String currentSymbol = ruleSymbol.toString();

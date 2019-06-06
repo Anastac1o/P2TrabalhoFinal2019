@@ -9,6 +9,12 @@ public class Compiler {
         rulesList.add(statement);
     }
 
+    public void setRule(Character letter, TurtleStatement statement){
+        int index = letterList.indexOf(letter);
+        letterList.set(index,letter);
+        rulesList.set(index, statement);
+    }
+
     protected TurtleStatement compile(Character c) {
         if(letterList.contains(c)){
             int index = letterList.indexOf(c);
