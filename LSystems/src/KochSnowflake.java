@@ -1,4 +1,4 @@
-public class KochCurve implements LSystem {
+public class KochSnowflake implements LSystem {
 
     String startWord, ruleWord;
     Character ruleSymbol;

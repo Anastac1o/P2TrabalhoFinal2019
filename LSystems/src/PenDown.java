@@ -1,3 +1,3 @@
 public class PenDown extends TurtleStatement {
-    public void run(Interpreter interpreter){ interpreter.runPenDown(this);}
+    public void run(Interpreter interpreter){ interpreter.run((PenDown)this);}
 }
