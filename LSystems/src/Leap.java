@@ -1,6 +1,15 @@
-public class Leap extends TurtleStatement{
-    double distance;
-    public Leap(double distance){ this.distance = distance;}
-    public double getDistance(){ return distance; }
-    public void run(Interpreter interpreter){ interpreter.run((Leap) this); }
+public class Leap extends TurtleStatement {
+    double x,y;
+    public Leap(double x, double y){this.x = x; this.y = y;}
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+    public void run(Interpreter interpreter){
+        interpreter.runLeap(this);
+    }
 }

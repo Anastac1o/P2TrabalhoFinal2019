@@ -8,8 +8,8 @@ public class tester {
         KochCurveTester teste = new KochCurveTester();
         CantorSetTester teste1 = new CantorSetTester();
 
-        teste1.draw(2);
-        //teste.draw(2);
+        //teste1.draw(2);
+        teste.draw(4);
     }
 }
 
