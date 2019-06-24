@@ -13,7 +13,7 @@ public class KochCurveTester {
         //System.out.println(word1);
 
         Compiler compiler = new Compiler();
-        compiler.addRule('F', new DrawForward((20 / Math.pow(numIter,1.26816))));
+        compiler.addRule('F', new Forward((20 / Math.pow(numIter,1.26816))));
         compiler.addRule('+', new Turn(90));
         compiler.addRule('-', new Turn(-90));
 

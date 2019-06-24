@@ -11,12 +11,8 @@ public class CantorSetTester {
         String word1 = cantor.iter(numIter);
 
         Compiler compiler = new Compiler();
-        compiler.addRule('A', new DrawForward(100));
-        compiler.addRule('B', new MoveForward(100));
-        compiler.addRule(' ', new Leap(0, -10));
-        for (int i=0; i<word1.length(); i++){
-
-        }
+        compiler.addRule('A', new Forward(100/(numIter*3)));
+        compiler.addRule('B', new Leap(100/(numIter* 3)));
 
         System.out.println(word1);
         Vector<TurtleStatement> compilado;

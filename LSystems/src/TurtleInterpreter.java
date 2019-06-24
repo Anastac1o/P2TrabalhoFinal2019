@@ -1,42 +1,33 @@
 import galapagos.Turtle;
-
-import java.util.Stack;
-import java.util.Vector;
+import java.util.*;
 
 public class TurtleInterpreter implements Interpreter {
 
     Turtle turtle = new Turtle();
 
     public void run(Vector<TurtleStatement> program) {
-        turtle.speed(10000);
-        for(int i=0; i < program.size(); i++){
+        turtle.speed(1000);
+        for(int i = 0; i < program.size(); i++){
+            if(program.elementAt(i) != null)
             program.elementAt(i).run(this);
         }
-
     }
 
-    public void runDrawForward(DrawForward statement) {
+    public void run(Forward statement) {
         turtle.forward(statement.getDistance());
     }
-
-    public void runMoveForward(MoveForward statement){
-        turtle.penUp();
-        turtle.forward(statement.getDistance());
-        turtle.penDown();
-    }
-
-    public void runTurn(Turn statement) {
-        turtle.turn(statement.getAngle());
-    }
-
-    public void runPenUp(PenUp statement) {
+    public void run(Turn statement) { turtle.turn(statement.getAngle()); }
+    public void run(PenUp statement) {
         turtle.penUp();
     }
-
-    public void runPenDown(PenDown statement) {
+    public void run(PenDown statement) {
         turtle.penDown();
     }
-    public void runLeap(Leap statement){
-        turtle.jumpTo(statement.getX(),statement.getY());
+    public void run(Leap statement){
+        Vector<TurtleStatement> moveForward = new Vector<>();
+        moveForward.add(new PenUp());
+        moveForward.add(new Forward(5));
+        moveForward.add(new PenDown());
+        this.run(moveForward);
     }
 }

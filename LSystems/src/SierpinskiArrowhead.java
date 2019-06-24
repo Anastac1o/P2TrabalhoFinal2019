@@ -1,7 +1,10 @@
-public class SierpinskiArrowhead implements LSystem {
+import java.util.Vector;
 
-    String startWord, ruleWord;
-    Character ruleSymbol;
+public class SierpinskiArrowhead implements LSystem {
+    String startWord;
+    Vector<String> ruleWord = new Vector<>();
+    Vector<Character> ruleSymbol = new Vector<>();
+    int numIter;
 
     public void setStart(String start) {
         startWord = start;
@@ -9,17 +12,29 @@ public class SierpinskiArrowhead implements LSystem {
 
 
     public void addRule(Character symbol, String word) {
-        ruleWord = word;
-        ruleSymbol = symbol;
+        this.ruleWord.add(word);
+        this.ruleSymbol.add(symbol);
     }
 
 
-    public String iter(int n) {
-        String word = startWord;
-        for(int i = 0; i < n; i++){
-            String currentSymbol = ruleSymbol.toString();
-            word = word.replaceAll(currentSymbol, ruleWord);
+    public String iter(int n) { Character currentSymbol;
+        String currentWord = startWord;
+        String finalWord = "";
+
+        for(int iter = 0; iter < n; iter++){
+            finalWord = "";
+
+            for(int i = 0; i < currentWord.length(); i++){
+                currentSymbol = currentWord.charAt(i);
+                String currentSymbolString = currentSymbol.toString();
+                int index = ruleSymbol.indexOf(currentSymbol);
+
+                finalWord += currentSymbolString.replace(currentSymbolString, ruleWord.elementAt(index));
+
+            }
+            currentWord = finalWord;
+
         }
-        return word;
+        return finalWord;
     }
 }
